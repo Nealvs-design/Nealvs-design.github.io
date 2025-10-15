@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const options = {
+        config: {
+          // Vega-Lite default configuration
+        },
+        init: (view) => {
+          // initialize tooltip handler
+          view.tooltip(new vegaTooltip.Handler().call);
+        },
+        view: {
+          // view constructor options
+          // remove the loader if you don't want to default to vega-datasets!
+          loader: vega.loader({
+            baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+          }),
+          renderer: "canvas",
+        },
+      };
+
+      // register vega and vega-lite with the API
+      vl.register(vega, vegaLite, options);
+    </script>
+    <style></style>
+  </head>
+  <body>
+
+    
+    <h1>A3</h1>
+
+    
+
+    <div class="part1Container">
+      <h2>
+        Part 1: Describe the Data
+      </h2>
+
+      <div class="part1subContainer">
+        <p>Variable: Name </p>
+        <p>Data Type: Nominal</p>
+        <p>Insights:The game that appears most often is Madden NFL 08, appearing on 8 different consoles. Interestingly, there are 8718 games that appear on one platform exclusively </p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable: Platform </p>
+        <p>Data Type: Nominal</p>
+        <p>Insights: most popular platform is the DS with 2163 games </p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable:Year</p>
+        <p>Data Type: Ordinal </p>
+        <p>Insights: the average year with most games was 2009 with 5724 games,  year with least amount of games is 1980 with 4 games. </p>
+      </div>
+
+        <div class="part1subContainer">
+        <p>Variable:Genre</p>
+        <p>Data Type: Nominal </p>
+        <p>Insights: Most popular genre is action, with 3,316 games while least popular is puzzle with 582 </p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable: Publisher</p>
+        <p>Data Type: Nominal</p>
+        <p>Insights: Publisher with most games is EA with 1351 games, Arena Entertainment has the least amount with 2 games</p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable:  NA Sales</p>
+        <p>Data Type: Quantitative </p>
+        <p>Insights: Mean - 0.26M <br>
+          Median - 0.08M <br>
+          Standard deviation - 0.81M <br>
+        Total Sum - 4392M <br></p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable:  EU Sales</p>
+        <p>Data Type: Quantitative</p>
+        <p>Insights: Mean - 0.15M <br>
+          Median - 0.02M <br>
+          Standard deviation - 0.51M <br>
+          Total Sum - 2432M <br>
+        </p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable:  JP Sales</p>
+        <p>Data Type: Quantitative</p>
+        <p>Insights: Mean - 0.08M <br>
+          Median - 0.0M <br>
+          Standard deviation - 0.31M <br>
+          Total Sum - 1291M <br></p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable: Other Sales</p>
+        <p>Data Type: Quantitative</p>
+        <p>Insights: Mean - 0.05M <br>
+          Median - 0.01M <br>
+          Standard deviation - 0.19M <br>
+          Total Sum - 797M <br></p>
+      </div>
+
+      <div class="part1subContainer">
+        <p>Variable: Global sales</p>
+        <p>Data Type: Quantitative</p>
+        <p>Insights: Mean - 0.53M <br>
+          Median - 0.17M <br>
+          Standard deviation - 1.56M <br>
+          Total Sum - 8920M <br></p>
+      </div>
+    
+    </div>
+
+
+    
+    <div class="container">
+      <h2>
+        Part 2: Create 4 Visual Explorations Using Vega-Lite
+      </h2>
+      <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+      <!-- <div id="view"></div>
+      <div id="view2"></div> -->
+      <div class="part1subContainer">
+          <h3> Visualization 1</h3>
+          <div id="view3"></div>
+          <h4>Reflection</h4>
+          <p>From the data, we can see that there are a few platforms that performed extremely well in a certain genre. For example, the Wii excelled in Sport games sales, the PS3 dominated the Action Game Sales and the Xbox 360 selling the most Shooter games. It would be interesting to see how this data matches with how many platforms were sold to see the number of games per one console relationship
+          </p>
+      </div>
+
+      <div class="part1subContainer">
+          <h3> Visualization 2</h3>
+          <div id="view4"></div>
+          <div id="view5"></div>
+          <h4>Reflection</h4>
+          <p>From the data, an interesting insights from the relationship between global sales and platforms over time is that the GBA and the PS2 experience an almost identical path with spikes and drops happening at the same time. Additonally, it is interesting to see the relationship between the change in platform global sales and the genre global sales. For example, both action and sport games reached their peak at the same time the Wii reached its peak in global sales. Another example of this relationship is the puzzle genre experiencing a spike at the same time the GB spikes up.</p>
+      </div>
+
+      <div class="part1subContainer">
+          <h3> Visualization 3</h3>
+          <div id="view6"></div>
+          <div id="view7"></div>
+          <div id="view8"></div>
+          <div id="view9"></div>
+          <h4>Reflection</h4>
+          <p>An interesting insight that arises from the data are platform regional preferences. In North America, the most successful platform was the Xbox360, in Europe the most successful platform was the PS3, and in JP the most successful platform was the DS. Interestingly, across all 3 regions, the PS2 remained consistently being one of the dominant platforms, being the second most successful platform in all 3 regions </p>
+      </div>
+
+      <div class="part1subContainer">
+          <h3> Visualization 4</h3>
+          <div id="view10"></div>
+          <h4>Reflection</h4>
+          <p>From this visualization, I wanted to see the JP region's preferences in genre over time. Interesting insights from this visualization is the sudden dominance and crash of platforming games in the 1980s. Additionally, Role-Playing games have been JP region's most dominant genre the longest, being the highest selling genre from 1995 to 2015 </p>
+      </div>
+    </div>
+    <script type="module" src="vis.js"></script>
+  </body>
+</html>
